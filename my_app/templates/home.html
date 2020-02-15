@@ -2,9 +2,21 @@
 
 {% block container %}
   <h1>Welcome to the Catalog Home</h1>
-  <a href="{{ url_for('catalog.products') }}" id="catalog_link">
-    Click here to see the catalog
-  </a>
+  <ul>
+    <li> 
+      Initially create a product (and bootstrap the DB):
+      <pre>
+      curl -X POST \
+      http://localhost:5000/product-create \
+      -F 'name=Google Pixel 2' \
+      -F price=300.0
+      </pre>
+    </li>
+    <li>
+      <a href="{{ url_for('catalog.products') }}" id="catalog_link">
+        Click here to see the catalog
+      </a>
+  </li>
 {% endblock %}
 
 {% block scripts %}

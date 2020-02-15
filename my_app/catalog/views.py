@@ -28,7 +28,7 @@ def template_or_json(template=None):
         @wraps(f)
         def decorated_fn(*args, **kwargs):
             ctx = f(*args, **kwargs)
-            if request.is_xhr or not template:
+            if not template:
                 return jsonify(ctx)
             else:
                 return render_template(template, **ctx)
